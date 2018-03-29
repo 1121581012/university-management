@@ -50,11 +50,12 @@ var StudentManager = {
         ajaxGet("/Ashx/StudentDetailUpdate.ashx", { studentId: studentId, phone: phone, phone2: phone2, qq: qq, email: email, address: address }, callback);
     }
 }
-var StudentCompain = {
-    insertCompain: function (studentId, Ctitle, Ctype, Ccontent, callback) {
-        ajaxGet("/Ashx/InsertStudentCompain.ashx", { studentId: studentId, Ctitle: Ctitle, Ctype: Ctype, Ccontent: Ccontent }, callback);
+var BaseInfoAppeal = {
+    saveBaseInfoAppeal: function (date, callback) {
+        ajaxPost(webroot+"BaseInfoAppeal/saveBaseInfoAppeal", { desc: date }, callback);
     }
 }
+
 
 //我的信息，数据访问调用
 var studentInfo = {

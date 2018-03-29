@@ -85,29 +85,7 @@
         }
     </script>
 
-    <script type="text/javascript">
-        function submitMail() {
-            var mtitle = "联系方式有修改";
-            var html = "<div style='padding:10px;'><div style='width:65px; height:120px; float:left;'>修改的地方：</div><div style='width:250px; height:120px; float:left;'><textarea id='objeCont' name='objeCont' style='width:250px; height:105px;'></textarea></div></div>";
 
-            var submit = function (v, h, f) {
-                if (f.objeCont == '' || f.objeCont.length > 80) {
-                    $.jBox.tip("请您输入有修改的地方，且不超过80个字！", 'error', {focusId: "objeCont"}); // 关闭设置 objeCont 为焦点
-                    return false;
-                }
-
-                StudentCompain.insertCompain('', mtitle, 5, f.objeCont, function (data) {
-                    var obj = $.parseJSON(data);
-                    var resultObj = false;
-                    if (obj.ok) {
-                        $.jBox.tip("成功提交联系方式的修改邮件！");
-                    }
-                });
-            };
-
-            $.jBox(html, {title: "联系方式修改的邮件", submit: submit});
-        }
-    </script>
 </head>
 <body>
 
@@ -121,7 +99,7 @@
             <h2 class="mbx">我的信息 &gt; 个人资料 &nbsp;&nbsp;&nbsp;</h2>
             <div class="morebt">
                 <ul id="ulStudMsgHeadTab">
-                    <li><a class="tab2" onclick="" href="Index.aspx.html">个人资料</a></li>
+                    <li><a class="tab2" onclick="" href="${pageContext.request.contextPath}/myInfo">个人资料</a></li>
                     <li><a class="tab2" onclick="" href="Objection.aspx.html">我的异议</a></li>
                 </ul>
             </div>
@@ -186,8 +164,7 @@
                     <tr align="center">
                         <td colspan="5" height="40">
                             <div align="center">
-
-                                <input type="button" id="button2" value="联系方式有修改" onclick="submitMail()"
+                                <input type="button" id="button2" value="我要修改信息" onclick="submitMail()"
                                        class="input2"/>
                             </div>
                         </td>
@@ -202,5 +179,7 @@
             &copy;copyright 2012 广博教育 csgb.net 版权所有 站长统计</p>
     </div>
 </div>
+<script type="text/javascript" src="Script/Data.js"></script>
+<script type="text/javascript" src="MyJs/MyInfo.js"></script>
 </body>
 </html>

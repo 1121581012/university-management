@@ -10,6 +10,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
+    <script type="text/javascript">
+        var webroot = '<%=request.getContextPath()%>/';
+    </script>
     <link href="${pageContext.request.contextPath}/Style/StudentStyle.css" rel="stylesheet" type="text/css" />
     <link href="${pageContext.request.contextPath}/Script/jBox/Skins/Blue/jbox.css" rel="stylesheet" type="text/css" />
     <link href="${pageContext.request.contextPath}/Style/ks.css" rel="stylesheet" type="text/css" />
