@@ -5,9 +5,8 @@
 function initMyAppealTable() {
     ajaxGet(webroot + "MyAppeal/showMyAppeal", "", function (data) {
         var myAppeals = data.myAppeals;
-        var length = myAppeals.length;
         var html;
-        if (length > 0){
+        if (myAppeals != undefined && myAppeals != null && myAppeals != ""){
             for (var i = 0;i<myAppeals.length;i++) {
                 html +="<tr align=\"center\">" +
                     "      <td >"+i+"</td>" ;
