@@ -1,5 +1,7 @@
 package com.glw.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -73,6 +75,7 @@ public class ScoreAppeal {
      *
      * @mbg.generated
      */
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date time;
 
     /**

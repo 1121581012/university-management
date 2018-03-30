@@ -1,5 +1,7 @@
 package com.glw.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -82,6 +84,7 @@ public class CreditAppeal {
      *
      * @mbg.generated
      */
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date time;
 
     /**

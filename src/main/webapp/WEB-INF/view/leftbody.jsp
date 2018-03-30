@@ -20,7 +20,7 @@
             </div>
 
             <div>
-                <a href="#">我的异议</a></div>
+                <a href="${pageContext.request.contextPath}/MyAppeal/myAppeal">我的异议</a></div>
         </div>
         <div class="ta1">
             <strong>教务中心</strong>

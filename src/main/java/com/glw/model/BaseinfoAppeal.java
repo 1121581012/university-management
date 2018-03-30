@@ -1,5 +1,7 @@
 package com.glw.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -55,6 +57,7 @@ public class BaseinfoAppeal {
      *
      * @mbg.generated
      */
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date time;
 
     /**

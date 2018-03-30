@@ -42,7 +42,7 @@
             </div>
             <div class="blog_nav">
                 <ul>
-                    <li><a href="#">我的信息</a></li>
+                    <li><a href="${pageContext.request.contextPath}/myInfo">个人中心</a></li>
                     <li><a href="#">教务中心</a></li>
 
                 </ul>

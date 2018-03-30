@@ -100,7 +100,7 @@
             <div class="morebt">
                 <ul id="ulStudMsgHeadTab">
                     <li><a class="tab2" onclick="" href="${pageContext.request.contextPath}/myInfo">个人资料</a></li>
-                    <li><a class="tab2" onclick="" href="Objection.aspx.html">我的异议</a></li>
+                    <li><a class="tab2" onclick="" href="${pageContext.request.contextPath}/MyAppeal/myAppeal">我的异议</a></li>
                 </ul>
             </div>
             <div class="cztable">
