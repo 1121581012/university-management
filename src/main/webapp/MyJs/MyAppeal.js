@@ -36,7 +36,7 @@ function initMyAppealTable() {
             }
         }else{
             html += "<tr align=\"center\">" +
-                " <td colspan=\"13\" align=\"left\" style=\"color: Red; font-weight:bold;\">未找到异议信息!</td></tr>>";
+                " <td colspan=\"13\" align=\"left\" style=\"color: Red; font-weight:bold;\">未找到异议信息!</td></tr>";
 
         }
         $("#MyAppealTableDiv").append(html);

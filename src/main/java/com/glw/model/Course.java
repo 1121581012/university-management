@@ -1,5 +1,7 @@
 package com.glw.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -37,6 +39,7 @@ public class Course {
      *
      * @mbg.generated
      */
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date startTime;
 
     /**
@@ -48,6 +51,7 @@ public class Course {
      *
      * @mbg.generated
      */
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date finishTime;
 
     /**
