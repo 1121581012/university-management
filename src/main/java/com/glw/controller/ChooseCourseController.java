@@ -1,9 +1,6 @@
 package com.glw.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.glw.model.Course;
-import com.glw.model.CourseTest;
 import com.glw.model.MyCourse;
 import com.glw.service.ChooseCourseService;
 import com.glw.service.CourseTestService;
@@ -12,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -80,7 +78,7 @@ public class ChooseCourseController {
      */
     @RequestMapping(value="studentChooseCourse")
     @ResponseBody
-    public Boolean studentChooseCourse(HttpSession session, @Param("id") String id) throws UnsupportedEncodingException {
+    public Boolean studentChooseCourse(HttpSession session, @RequestParam("id") String id,@RequestParam("courseName") String courseName) throws UnsupportedEncodingException {
         Integer studentId = (Integer) session.getAttribute("id");
         Integer courseId = Integer.parseInt(id);
         List<MyCourse> myCourses = myCourseService.listMyCourseByStudentIdAndCourseId(studentId, courseId);
@@ -90,13 +88,14 @@ public class ChooseCourseController {
             MyCourse myCourse = new MyCourse();
             myCourse.setCourseId(courseId);
             myCourse.setStudentId(studentId);
-            List<CourseTest> courseTest = courseTestService.listCourseTestByCourseId(courseId);
-            if (courseTest.size()>0){
-                myCourse.setCourseName(courseTest.get(0).getCourseName());
-                myCourse.setLocation(courseTest.get(0).getLocation());
-                myCourse.setStartTime(courseTest.get(0).getStartTime());
-                myCourse.setFinishTime(courseTest.get(0).getFinishTime());
-            }
+            myCourse.setCourseName(courseName);
+//            List<CourseTest> courseTest = courseTestService.listCourseTestByCourseId(courseId);
+//            if (courseTest.size()>0){
+//                myCourse.setCourseName(courseTest.get(0).getCourseName());
+//                myCourse.setLocation(courseTest.get(0).getLocation());
+//                myCourse.setStartTime(courseTest.get(0).getStartTime());
+//                myCourse.setFinishTime(courseTest.get(0).getFinishTime());
+//            }
             myCourseService.saveMyCourse(myCourse);
             return true;
         }

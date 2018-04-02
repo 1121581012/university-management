@@ -1,41 +1,43 @@
 (function ($) {
-    initChooseCourseTable();
+    initMyCourseTable();
 })(jQuery);
 
-function initChooseCourseTable() {
-    ajaxGet(webroot + "ChooseCourseController/showChooseCourse", "", function (data) {
-        var courses = data.courses;
+function initMyCourseTable() {
+    ajaxGet(webroot + "MyCourseController/showMyCourse", "", function (data) {
+        var courses = data;
         var html;
         if (courses != undefined && courses != null && courses != ""){
             for (var i = 0;i<courses.length;i++) {
-                html +="<tr align=\"center\">" +
+                html +="<tr align=\"center\" class='forRemove'>" +
                     "      <td >"+courses[i].id+"</td>" +
                     "      <td >"+courses[i].name+"</td>" +
                     "      <td >"+courses[i].startTime+"</td>" +
                     "      <td >"+courses[i].finishTime+"</td>" ;
                 var flag = checkTime(courses[i].startTime,courses[i].finishTime);
                 if (flag){
-                    html += "<td><a href='javascript:void(0)' onclick='chooseCourse("+courses[i].id+",\""+courses[i].name+"\")'>选课</a></td>"
+                    html += "<td><a href='javascript:void(0)' onclick='deleteCourse("+courses[i].id+")'>退课</a></td>"
                 }else{
-                    html += "<td>暂不可选</td>"
+                    html += "<td>不可退课</td>"
                 }
                 html += "</tr>";
             }
         }else{
-            html += "<tr align=\"center\">" +
-                " <td colspan=\"13\" align=\"left\" style=\"color: Red; font-weight:bold;\">没有可选课程!</td></tr>";
+            html += "<tr align=\"center\" class='forRemove'>" +
+                " <td colspan=\"13\" align=\"left\" style=\"color: Red; font-weight:bold;\">没有选课信息!</td></tr>";
         }
-        $("#ChooseCourseTableId").append(html);
+        $("#MyCourseTableId").append(html);
     });
 }
 
-function chooseCourse(courseId,courseName) {
-    var data = {id:courseId,courseName:courseName};
-    ajaxPost(webroot + "ChooseCourseController/studentChooseCourse", data, function (data) {
+function deleteCourse(courseId) {
+    var data = {courseId:courseId};
+    ajaxPost(webroot + "MyCourseController/deleteMyCourse", data, function (data) {
         if (data){
-            $.jBox.tip("选课成功");
+            $.jBox.tip("退课成功！");
+            $("#MyCourseTableId .forRemove").remove();
+            initMyCourseTable();
         }else{
-            $.jBox.tip("选课失败，已经选择过该课程");
+            $.jBox.tip("选课失败，你没有选该课程！");
         }
     })
 }

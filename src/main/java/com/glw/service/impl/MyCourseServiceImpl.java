@@ -1,14 +1,13 @@
 package com.glw.service.impl;
 
 import com.glw.dao.MyCourseMapper;
+import com.glw.model.Course;
 import com.glw.model.MyCourse;
-import com.glw.service.MyAppealService;
 import com.glw.service.MyCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @Author: GaoLiWei
@@ -47,5 +46,36 @@ public class MyCourseServiceImpl implements MyCourseService {
     @Override
     public void saveMyCourse(MyCourse myCourse) {
         myCourseMapper.insertSelective(myCourse);
+    }
+
+    /**
+     * @Description: 根据学生ID查询该学生选择的课程
+     * @MethodName: listCourseByStudentId
+     * @Parameter: [studentId]
+     * @Return: java.util.List<com.glw.model.Course>
+     * @author: GaoLiWei
+     * @email: 1121581012@qq.com
+     * @date 2018/4/2 22:20
+     * @version V1.0
+     */
+    @Override
+    public List<Course> listCourseByStudentId(Integer studentId) {
+        return myCourseMapper.listCourseByStudentId(studentId);
+    }
+
+    /**
+     * @Description: 根据学生ID，课程ID 删除我的选课
+     * @MethodName: deleteMyCourseByCourseIdAndeStudentId
+     * @Parameter: [studentId, courseId]
+     * @Return: java.lang.Integer
+     * @author: GaoLiWei
+     * @email: 1121581012@qq.com
+     * @date 2018/4/2 22:45
+     * @version V1.0
+     */
+    @Override
+    public Integer deleteMyCourseByCourseIdAndeStudentId(Integer studentId, Integer courseId) {
+
+        return myCourseMapper.deleteMyCourseByCourseIdAndeStudentId(studentId,courseId);
     }
 }

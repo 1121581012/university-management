@@ -29,9 +29,11 @@
         </div>
         <div class="cdlist">
             <div>
-                <a href="#">我的报考</a></div>
+                <a href="${pageContext.request.contextPath}/MyCourseController/toMyCourse">我的课程</a></div>
             <div>
-                <a href="#">我的成绩</a></div>
+                <a href="${pageContext.request.contextPath}/MyCourseController/toMyCourseTest">我的报考</a></div>
+            <div>
+                <a href="${pageContext.request.contextPath}/MyCourseController/toMyScore">我的成绩</a></div>
             <div>
                 <a href="${pageContext.request.contextPath}/ChooseCourseController/chooseCourse">我要选课</a></div>
         </div>
