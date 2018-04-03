@@ -138,4 +138,10 @@
     <select id="listCourseTestByCourseId" resultType="com.glw.model.CourseTest">
         select <include refid="Base_Column_List"/> from course_test;
     </select>
+    <select id="listCourseTestByStudentId" resultType="com.glw.model.CourseTest">
+
+            SELECT <include refid="Base_Column_List"/>
+            FROM course_test WHERE course_id IN  (
+            SELECT course_id FROM my_course WHERE student_id = #{studentId}  )
+    </select>
 </mapper>

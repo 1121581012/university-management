@@ -32,4 +32,19 @@ public class CourseTestServiceImpl implements CourseTestService{
     public List<CourseTest> listCourseTestByCourseId(Integer courseId) {
         return courseTestMapper.listCourseTestByCourseId(courseId);
     }
+
+    /**
+     * @Description: 根据学生ID查询该学生课程考试信息
+     * @MethodName: listCourseTestByStudentId
+     * @Parameter: [studentId]
+     * @Return: java.util.List<com.glw.model.CourseTest>
+     * @author: GaoLiWei
+     * @email: 1121581012@qq.com
+     * @date 2018/4/3 9:24
+     * @version V1.0
+     */
+    @Override
+    public List<CourseTest> listCourseTestByStudentId(Integer studentId) {
+        return courseTestMapper.listCourseTestByStudentId(studentId);
+    }
 }

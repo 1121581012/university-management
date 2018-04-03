@@ -191,7 +191,7 @@
                     <tbody id="MyCourseTableId">
                     <tr style="height: 25px" align="center">
                         <th scope="col">
-                            编号
+                            课程代码
                         </th>
                         <th scope="col">
                             课程名称

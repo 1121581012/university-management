@@ -21,4 +21,17 @@ public interface CourseTestService {
      * @version V1.0
      */
     List<CourseTest> listCourseTestByCourseId(Integer courseId);
+
+
+    /**
+     * @Description: 根据学生ID查询该学生课程考试信息
+     * @MethodName: listCourseTestByStudentId
+     * @Parameter: [studentId]
+     * @Return: java.util.List<com.glw.model.CourseTest>
+     * @author: GaoLiWei
+     * @email: 1121581012@qq.com
+     * @date 2018/4/3 9:24
+     * @version V1.0
+     */
+    List<CourseTest> listCourseTestByStudentId (Integer studentId);
 }

@@ -5,7 +5,22 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+/**
+ * @author Hello
+ */
 public interface CourseTestMapper {
+
+    /**
+     * @Description: 根据学生ID查询该学生考试信息
+     * @MethodName: listCourseTestByStudentId
+     * @Parameter:  Integer studentId
+     * @Return:  List<CourseTest>
+     * @author: GaoLiWei
+     * @email: 1121581012@qq.com
+     * @date 2018/4/3 9:18
+     * @version V1.0
+     */
+    List<CourseTest> listCourseTestByStudentId (@Param("studentId") Integer studentId);
 
     /**
      * @Description: 根据课程ID查询课程考试信息

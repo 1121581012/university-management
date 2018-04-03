@@ -7,14 +7,15 @@
     <script type="text/javascript">
         var webroot = '<%=request.getContextPath()%>/';
     </script>
-    <link href="../Style/StudentStyle.css" rel="stylesheet" type="text/css" />
-    <link href="../Script/jBox/Skins/Blue/jbox.css" rel="stylesheet" type="text/css" />
-    <link href="../Style/ks.css" rel="stylesheet" type="text/css" />
-    <script src="../Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
-    <script src="../Script/jBox/jquery.jBox-2.3.min.js" type="text/javascript"></script>
-    <script src="../Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
-    <script src="../Script/Common.js" type="text/javascript"></script>
-    <script src="../Script/Data.js" type="text/javascript"></script>
+    <link href="${pageContext.request.contextPath}/Style/StudentStyle.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/Script/jBox/Skins/Blue/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/Style/ks.css" rel="stylesheet" type="text/css" />
+    <script src="${pageContext.request.contextPath}/Script/jBox/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/Script/jBox/jquery.jBox-2.3.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/Script/Common.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/Script/Data.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/MyJs/MyCourseTest.js" type="text/javascript"></script>
     <script type="text/javascript">
         $().ready(function () {
             setStudMsgHeadTabCheck();
@@ -87,8 +88,8 @@
         }
     </script>
 
-    <link href="../Style/StudentStyle.css" rel="stylesheet" type="text/css" />
-    <script src="../Script/Base.js" type="text/javascript"></script>
+    <link href="${pageContext.request.contextPath}/Style/StudentStyle.css" rel="stylesheet" type="text/css" />
+    <script src="${pageContext.request.contextPath}/Script/Base.js" type="text/javascript"></script>
     <script language="javascript" type="text/javascript">
         function confirmStatus(sid) {
             if (confirm("确定确认无误吗？") == true) {
@@ -175,35 +176,38 @@
 
             <h2 class="mbx">
                 教务中心 &gt; 我的报考</h2>
-            <jsp:include page="title.jsp"></jsp:include>
+            <div class="morebt">
+                <ul>
+                    <li><a class="tab2" href="${pageContext.request.contextPath}/MyCourseController/toMyCourse">我的课程</a></li>
+                    <li><a class="tab1" href="${pageContext.request.contextPath}/MyCourseController/toMyCourseTest">我的报考</a></li>
+                    <li><a class="tab2" href="${pageContext.request.contextPath}/MyCourseController/toMyScore">我的成绩</a></li>
+                    <li><a class="tab2" href="${pageContext.request.contextPath}/ChooseCourseController/chooseCourse">我要选课</a></li>
+                </ul>
+            </div>
             <div class="cztable">
                 <div class="tis red">
                     注：请仔细查看【报考】考试计划以及考试时间，以免错过考试。
                 </div>
                 <table width="100%" cellpadding="0" cellspacing="0">
-                    <tr align="center">
-                        <th style="text-align: center;">
-                            课程代码
-                        </th>
-                        <th style="text-align: center;">
-                            课程名称
-                        </th>
-                        <th style="text-align: center;">
-                            考试地点
-                        </th>
-                        <th style="text-align: center;">
-                            考试开始时间
-                        </th>
-                        <th style="text-align: center;">
-                            考试结束时间
-                        </th>
-                    </tr>
-
-                    <tr style="height: 28px" class="tdbg" align="center">
-                        <td colspan="13" align="left" style="color: Red; font-weight: bold;">
-                            未找到考试计划信息！
-                        </td>
-                    </tr>
+                    <tbody id="MyCourseTestTableId">
+                        <tr align="center">
+                            <th style="text-align: center;">
+                                课程代码
+                            </th>
+                            <th style="text-align: center;">
+                                课程名称
+                            </th>
+                            <th style="text-align: center;">
+                                考试地点
+                            </th>
+                            <th style="text-align: center;">
+                                考试开始时间
+                            </th>
+                            <th style="text-align: center;">
+                                考试结束时间
+                            </th>
+                        </tr>
+                    </tbody>
 
                 </table>
             </div>
