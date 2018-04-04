@@ -23,6 +23,7 @@
     <script src="${pageContext.request.contextPath}/Script/Data.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/Script/changeOption.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/Script/rl.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/MyJs/head.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="banner">

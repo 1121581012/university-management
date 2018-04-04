@@ -1,8 +1,9 @@
 <%@ page pageEncoding="utf-8" contentType="text/html;charset=UTF-8" language="java" %>
 <html >
 <head>
-
-
+    <script type="text/javascript">
+        var webroot = '<%=request.getContextPath()%>/';
+    </script>
     <!-- General meta information -->
     <title>欢迎登录</title>
     <meta charset="utf-8" />
@@ -50,7 +51,7 @@
             <div id="username_inputleft"></div>
             <div id="username_inputmiddle">
                     <input type="text" name="studentId" id="url" value="请输入学号" onclick="this.value = ''">
-                    <img id="url_user" src="images/mailicon.png" alt="">
+                    <img id="url_user" src="${pageContext.request.contextPath}/images/mailicon.png" alt="">
             </div>
             <div id="username_inputright"></div>
         </div>
@@ -58,13 +59,13 @@
             <div id="password_inputleft"></div>
             <div id="password_inputmiddle">
                     <input type="password" name="password" id="url" value="请输入密码" onclick="this.value = ''">
-                    <img id="url_password" src="images/passicon.png" alt="">
+                    <img id="url_password" src="${pageContext.request.contextPath}/images/passicon.png" alt="">
             </div>
             <div id="password_inputright"></div>
         </div>
         <div id="submit">
-                <input type="image" src="images/submit_hover.png" id="submit1" value="Sign In">
-                <input type="image" src="images/submit.png" id="submit2" value="Sign In">
+                <input type="image" src="${pageContext.request.contextPath}/images/submit_hover.png" id="submit1" value="Sign In">
+                <input type="image" src="${pageContext.request.contextPath}/images/submit.png" id="submit2" value="Sign In">
         </div>
         </form>
 
