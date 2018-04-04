@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html >
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
     学生信息管理平台
 </title>
     <script type="text/javascript">
@@ -14,8 +15,7 @@
     <script src="${pageContext.request.contextPath}/Script/jBox/i18n/jquery.jBox-zh-CN.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/Script/Common.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/Script/Data.js" type="text/javascript"></script>
-    <script src="${pageContext.request.contextPath}/MyJs/ChooseCourse.js" type="text/javascript"></script>
-
+    <script src="${pageContext.request.contextPath}/MyJs/MyScore.js" type="text/javascript"></script>
     <script type="text/javascript">
         $().ready(function () {
             setStudMsgHeadTabCheck();
@@ -87,15 +87,16 @@
             }
         }
     </script>
+
+    <link href="${pageContext.request.contextPath}/Style/StudentStyle.css" rel="stylesheet" type="text/css" />
     <script src="${pageContext.request.contextPath}/Script/Base.js" type="text/javascript"></script>
     <script language="javascript" type="text/javascript">
-
-        function confirmStatus(bid) {
+        function confirmStatus(sid) {
             if (confirm("确定确认无误吗？") == true) {
-                senateCenter.modifyStudentBookStatus(bid, 2, function (data) {
+                senateCenter.modifyStudentSignupExamStatus(sid, 2, function (data) {
                     var result = $.parseJSON(data);
                     if ((String(result.ok) == "true")) {
-                        jBox.alert(result.message, "提示");
+                        jBox.alert(result.message, '提示');
                         setTimeout(function () {
                             window.location.reload();
                         }, 1500);
@@ -107,8 +108,8 @@
             }
         }
 
-        function submitObjection(bid) {
-            var mtitle = "书籍有异议";
+        function submitObjection(objId) {
+            var mtitle = "报考有异议";
             var html = "<div style='padding:10px;'><div style='width:65px; height:120px; float:left;'>异议内容：</div><div style='width:250px; height:120px; float:left;'><textarea id='objeCont' name='objeCont' style='width:250px; height:105px;'></textarea></div></div>";
 
             var submit = function (v, h, f) {
@@ -116,11 +117,12 @@
                     $.jBox.tip("请您输入异议内容，且不超过80个字！", 'error', { focusId: "objeCont" }); // 关闭设置 objeCont 为焦点
                     return false;
                 }
+
                 StudentCompain.insertCompain('', mtitle, 2, f.objeCont, function (data) {
                     var obj = $.parseJSON(data);
                     var resultObj = false;
                     if (obj.ok) {
-                        senateCenter.modifyStudentBookStatus(bid, 3, function (data) {
+                        senateCenter.modifyStudentSignupExamStatus(objId, 3, function (data) {
                             var result = $.parseJSON(data);
                             if ((String(result.ok) == "true")) {
                                 jBox.alert("成功提交异议！", "提示");
@@ -142,10 +144,28 @@
 
             $.jBox(html, { title: "提交异议", submit: submit });
         }
+        function showApp(i1, i2, i3) {
+            var amount1 = i1 * 48;
+            var amount2 = i2 * 348;
+            var amount3 = i3 * 168;
+            var aamount = amount1 + amount2 + amount3;
+            $("#BCount").html(i1);
+            $("#LCount").html(i2);
+            $("#SCount").html(i3);
+            $("#BAmount").html(amount1);
+            $("#LAmount").html(amount2);
+            $("#SAmount").html(amount3);
+            $("#AAmount").html(aamount);
+            $.jBox("id:MyAppMoney", {
+                title: "报考费详情",
+                width: 510,
+                height: 280,
+                buttons: { '关闭': true }
+            });
+        }
     </script>
 </head>
 <body>
-
 <jsp:include page="head.jsp"></jsp:include>
 <div class="page">
     <div class="box mtop">
@@ -153,23 +173,22 @@
             <jsp:include page="leftbody.jsp"></jsp:include>
         </div>
         <div class="rightbox">
-
             <h2 class="mbx">
-                教务中心 &gt; 我要选课</h2>
+                教务中心 &gt; 我的成绩</h2>
             <div class="morebt">
                 <ul>
                     <li><a class="tab2" href="${pageContext.request.contextPath}/MyCourseController/toMyCourse">我的课程</a></li>
                     <li><a class="tab2" href="${pageContext.request.contextPath}/MyCourseController/toMyCourseTest">我的报考</a></li>
-                    <li><a class="tab2" href="${pageContext.request.contextPath}/MyScoreController/toMyScore">我的成绩</a></li>
-                    <li><a class="tab1" href="${pageContext.request.contextPath}/ChooseCourseController/chooseCourse">我要选课</a></li>
+                    <li><a class="tab1" href="${pageContext.request.contextPath}/MyScoreController/toMyScore">我的成绩</a></li>
+                    <li><a class="tab2" href="${pageContext.request.contextPath}/ChooseCourseController/chooseCourse">我要选课</a></li>
                 </ul>
             </div>
             <div class="cztable">
                 <div class="tis red">
-                    注：请仔细检查自己要选择的课程的开始以及结束时间，在可以选课的时间来选课。
+                    注：请仔细核查自己的成绩，如果不符请及时申请复查。
                 </div>
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tbody id="ChooseCourseTableId">
+                    <tbody id="MyScoreTableId">
                     <tr style="height: 25px" align="center">
                         <th scope="col">
                             课程代码
@@ -178,10 +197,7 @@
                             课程名称
                         </th>
                         <th scope="col">
-                            选课开始时间
-                        </th>
-                        <th scope="col">
-                            选课结束时间
+                            成绩
                         </th>
                         <th scope="col">
                             操作

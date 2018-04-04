@@ -35,15 +35,15 @@
             </div>
             <div class="topxx">
                 ${sessionScope.id}学员：${sessionScope.name}，欢迎您！
-                <a href="#">我的信息</a>
-                <a href="#">通知</a>
+                <a href="${pageContext.request.contextPath}/myInfo">我的信息</a>
+                <a href="${pageContext.request.contextPath}/MyAppeal/myAppeal">通知</a>
                 <a href="#">密码修改</a>
                 <a onclick="loginOut()" href="javascript:">安全退出</a>
             </div>
             <div class="blog_nav">
                 <ul>
                     <li><a href="${pageContext.request.contextPath}/myInfo">个人中心</a></li>
-                    <li><a href="#">教务中心</a></li>
+                    <li><a href="${pageContext.request.contextPath}/MyCourseController/toMyCourse">教务中心</a></li>
 
                 </ul>
             </div>

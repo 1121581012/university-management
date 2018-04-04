@@ -8,8 +8,9 @@ function initMyAppealTable() {
         var html;
         if (myAppeals != undefined && myAppeals != null && myAppeals != ""){
             for (var i = 0;i<myAppeals.length;i++) {
+                var num = parseInt(i)+1;
                 html +="<tr align=\"center\">" +
-                    "      <td >"+i+"</td>" ;
+                    "      <td >"+num+"</td>" ;
                 switch (myAppeals[i].type){
                     case 1 :
                         html +=  "<td >信息申诉</td>";
