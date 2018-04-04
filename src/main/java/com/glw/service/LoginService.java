@@ -15,6 +15,18 @@ public interface LoginService {
      */
     Login login(Integer studentId);
 
+    /**
+     * @Description: 根据学生ID修改登录密码
+     * @MethodName: updateLoginPassWordByStudentId
+     * @Parameter: [studentId, passWord]
+     * @Return: Integer
+     * @author: GaoLiWei
+     * @email: 1121581012@qq.com
+     * @date 2018/4/4 12:36
+     * @version V1.0
+     */
+    Integer updateLoginPassWordByStudentId(Integer studentId, String passWord);
+
     /**登陆后，更新最后登录时间
      * @param login
      */

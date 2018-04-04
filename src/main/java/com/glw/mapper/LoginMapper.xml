@@ -119,4 +119,9 @@
     from login
     where student_id = #{studentId,jdbcType=INTEGER}
   </select>
+    <update id="updateLoginPassWordByStudentId" >
+         update login
+         set  password = #{passWord,jdbcType=VARCHAR}
+         where student_id = #{studentId,jdbcType=INTEGER}
+    </update>
 </mapper>

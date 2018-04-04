@@ -38,7 +38,7 @@
                 ${sessionScope.id}学员：${sessionScope.name}，欢迎您！
                 <a href="${pageContext.request.contextPath}/myInfo">我的信息</a>
                 <a href="${pageContext.request.contextPath}/MyAppeal/myAppeal">通知</a>
-                <a href="#">密码修改</a>
+                <a href="${pageContext.request.contextPath}/ChangePasswordController/toChangePassword">密码修改</a>
                 <a onclick="loginOut()" href="javascript:">安全退出</a>
             </div>
             <div class="blog_nav">
