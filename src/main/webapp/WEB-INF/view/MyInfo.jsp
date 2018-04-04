@@ -38,13 +38,6 @@
                         <td>${baseinfo.name}&nbsp;</td>
                         <td align="right" width="90">身份证号码：</td>
                         <td>${baseinfo.idCard}&nbsp;</td>
-
-                        <td rowspan="9">
-                            <div align="center"><img id="pic_face" height="160" width="120"
-                                                     src="${pageContext.request.contextPath}/images/Student/photo.jpg" style="padding:2px 2px 5px;
-                                border:1px #ddd solid;">
-                            </div>&nbsp;
-                        </td>
                     </tr>
                     <tr>
                         <td align="right">性别：</td>
