@@ -24,7 +24,7 @@ body{font-size:12px; line-height:22px;color:#333;}
 #logo a{display:block;}
 .banner{background:#358edd url(../images/Student/banner.jpg) repeat-x top;}
 .width{width:100%; margin:0 auto; position:relative; height:70px; }
-.bgh{background:url(../images/Student/topbgright.jpg) no-repeat top right;}
+.bgh{background:url(../images/Student/banner.jpg) no-repeat top right;}
 .topxx{ text-align:right; height:24px;color:#fff; padding:5px 4px 5px 0; letter-spacing:3px; font-size:11px;}
 .topxx a{color:#fff; margin-left:5px; text-decoration:underline;}
 .blog_nav{overflow:hidden; _zoom:1; height:29px; line-height:29px; font-size:13px; margin-top:5px; width:800px; position:absolute; bottom:0; left:177px;}

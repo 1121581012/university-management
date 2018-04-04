@@ -76,7 +76,7 @@
         course_credit,
       </if>
       <if test="desc != null">
-        desc,
+        `desc`,
       </if>
       <if test="type != null">
         type,

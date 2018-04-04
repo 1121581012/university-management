@@ -35,6 +35,8 @@
             <div>
                 <a href="${pageContext.request.contextPath}/MyScoreController/toMyScore">我的成绩</a></div>
             <div>
+                <a href="${pageContext.request.contextPath}/MyCourseCreditController/toMyCourseCredit">我的学分</a></div>
+            <div>
                 <a href="${pageContext.request.contextPath}/ChooseCourseController/chooseCourse">我要选课</a></div>
         </div>
 
