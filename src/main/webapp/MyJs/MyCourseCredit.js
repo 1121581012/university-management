@@ -36,7 +36,7 @@ function myCourseCreditAppeal(courseId,courseName,credit) {
             return false;
         }
         var myCourseCreditUpdate = $("#myCourseCreditUpdate").val();
-        var date = {courseId:courseId, courseName:courseName, desc:myCourseCreditUpdate, credit:credit};
+        var date = {courseId:courseId, courseName:courseName, desc:myCourseCreditUpdate, courseCredit:credit};
         ajaxPost(webroot+"MyCourseCreditController/saveMyCourseCreditAppeal", date, function (data) {
             $.jBox.tip("成功提交申请！");
         });
